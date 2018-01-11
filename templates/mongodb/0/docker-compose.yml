@@ -1,0 +1,46 @@
+version: '2'
+volumes:
+  mongodata:
+    driver_opts:
+      iops: '1000'
+      size: '${VOLUME_SIZE}'
+      volumeType: gp2
+    driver: rancher-ebs
+services:
+  mongo-datavolume:
+    image: busybox
+    entrypoint:
+    - /bin/true
+    volumes:
+    - mongodata:/data/db
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+  mongo-cluster:
+    image: mongo:3.4
+    environment:
+      MONGO_SERVICE_NAME: mongo-cluster
+    entrypoint:
+    - /opt/rancher/bin/entrypoint.sh
+    volumes_from:
+    - mongo-datavolume
+    - mongo-base
+    ports:
+    - 27017:27017/tcp
+    command:
+    - --replSet
+    - rs0
+    labels:
+      io.rancher.sidekicks: mongo-base,mongo-datavolume
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+  mongo-base:
+    image: rancher/mongodb-conf:v0.1.1
+    stdin_open: true
+    entrypoint:
+    - /bin/true
+    labels:
+      io.rancher.container.start_once: 'true'
+      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}

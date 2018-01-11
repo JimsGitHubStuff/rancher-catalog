@@ -1,0 +1,6 @@
+name: Metadataproxy
+description: |
+  This a service that runs which enables docker containers to utilise instance profiles.
+version: 0
+category: infrastructure
+maintainer: Jordan Simonovski

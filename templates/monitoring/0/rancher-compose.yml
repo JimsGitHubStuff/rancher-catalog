@@ -1,0 +1,94 @@
+version: '2'
+catalog:
+  questions:
+    - variable: ALLOWED_DOMAINS
+      label: Google Auth Allowed Domains
+      required: true
+      description: The domain of the Google Accounts being used.
+      type: string
+      default: healthengine.com.au
+    - variable: AUTH_URL
+      label: Google Auth URL
+      required: true
+      type: string
+      description: Google OAuth URL
+      default: https://accounts.google.com/o/oauth2/auth
+    - variable: CLIENT_ID
+      label: Google Client ID
+      required: true
+      type: string
+    - variable: CLIENT_SECRET
+      label: Google Client Secret
+      required: true
+      type: string
+    - variable: TOKEN_URL
+      label: Google Token URL
+      required: true
+      type: string
+      default: https://accounts.google.com/o/oauth2/token
+    - variable: GRAFANA_DOMAIN
+      label: Grafana Server Domain
+      required: true
+      type: string
+      default: grafana.teampirate.io
+    - variable: PROMETHEUS_DOMAIN
+      label: Prometheus Server Domain
+      required: true
+      type: string
+      default: prometheus.teampirate.io
+    - variable: ENVIRONMENT
+      label: "Environment"
+      description: |
+        Used to set DNS entry.
+      default: stage
+      required: true
+      type: enum
+      options:
+        - staging
+        - production
+    - variable: VOLUME_SIZE
+      label: Grafana DB Volume Size
+      default: 10
+      type: string
+      required: true
+services:
+  node-exporter:
+    start_on_create: true
+  prom-conf:
+    scale: 1
+    start_on_create: true
+  grafana:
+    scale: 1
+    start_on_create: true
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 5000
+      port: 3000
+      unhealthy_threshold: 3
+      interval: 5000
+      strategy: recreate
+  prometheus-rancher-exporter:
+    scale: 1
+    start_on_create: true
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 5000
+      port: 9173
+      unhealthy_threshold: 3
+      interval: 5000
+      strategy: recreate
+  cadvisor:
+    start_on_create: true
+  prometheus:
+    scale: 1
+    start_on_create: true
+    health_check:
+      healthy_threshold: 2
+      response_timeout: 5000
+      port: 9090
+      unhealthy_threshold: 3
+      interval: 5000
+      strategy: recreate
+  graf-db:
+    scale: 1
+    start_on_create: true

@@ -1,0 +1,6 @@
+name: Traefik
+description: |
+  Load Balancing Service for Rancher
+version: 0
+category: infrastructure
+maintainer: Jordan Simonovski

@@ -1,0 +1,6 @@
+name: MongoDB
+description: |
+  MongoDB service which supports rancher-ebs
+version: 0
+category: database
+maintainer: Jordan Simonovski

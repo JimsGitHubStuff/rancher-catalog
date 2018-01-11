@@ -1,0 +1,28 @@
+version: '2'
+catalog:
+  questions:
+    - variable: VOLUME_SIZE
+      label: Volume Size
+      description: The size EBS volume for the Mongo Database
+      type: string
+services:
+  mongo-datavolume:
+    metadata:
+      mongo: &id001
+        yml:
+          replset.name: rs0
+    retain_ip: true
+    scale: 1
+    start_on_create: true
+  mongo-cluster:
+    metadata:
+      mongo: *id001
+    retain_ip: true
+    scale: 1
+    start_on_create: true
+  mongo-base:
+    metadata:
+      mongo: *id001
+    retain_ip: true
+    scale: 1
+    start_on_create: true

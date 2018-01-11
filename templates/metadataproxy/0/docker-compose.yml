@@ -1,0 +1,10 @@
+version: '2'
+services:
+  api:
+    image: lyft/metadataproxy
+    stdin_open: true
+    network_mode: host
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    labels:
+      io.rancher.container.pull_image: always
