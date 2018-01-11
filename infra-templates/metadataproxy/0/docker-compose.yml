@@ -8,3 +8,5 @@ services:
     - /var/run/docker.sock:/var/run/docker.sock
     labels:
       io.rancher.container.pull_image: always
+      io.rancher.container.create_agent: 'true'
+      io.rancher.container.agent.role: environment
