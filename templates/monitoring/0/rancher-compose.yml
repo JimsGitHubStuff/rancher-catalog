@@ -58,6 +58,7 @@ catalog:
         - production
     - variable: VOLUME_SIZE
       label: Grafana DB Volume Size
+      description: The Volume Size of the EBS Volume attached to Mongo.
       default: 10
       type: string
       required: true

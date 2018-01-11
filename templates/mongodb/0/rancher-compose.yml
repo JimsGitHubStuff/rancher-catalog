@@ -2,8 +2,7 @@ version: '2'
 catalog:
   name: MongoDB
   version: 1
-  description: |
-    MongoDB with EBS Support.
+  description: MongoDB with EBS Support.
   minimum_rancher_version: v0.59.0
   maintainer: "Jordan Simonovski <jordan.simonovski@gmail.com>"
   uuid: mongodb-0

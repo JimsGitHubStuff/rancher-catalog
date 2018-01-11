@@ -1,6 +1,5 @@
 name: Monitoring
-description: |
-  Monitoring service which creates prometheus and grafana services
+description: Monitoring service which creates prometheus and grafana services
 version: 0
 category: monitoring
 maintainer: Jordan Simonovski
