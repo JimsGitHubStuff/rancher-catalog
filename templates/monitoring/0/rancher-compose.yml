@@ -1,5 +1,11 @@
 version: '2'
 catalog:
+  name: Monitoring
+  version: 1
+  description: Prometheus and Grafana with Google Auth and EBS support
+  minimum_rancher_version: v0.59.0
+  maintainer: "Jordan Simonovski <jordan.simonovski@gmail.com>"
+  uuid: monitoring-0
   questions:
     - variable: ALLOWED_DOMAINS
       label: Google Auth Allowed Domains
@@ -16,30 +22,34 @@ catalog:
     - variable: CLIENT_ID
       label: Google Client ID
       required: true
+      description: Google Auth Client ID
       type: string
     - variable: CLIENT_SECRET
       label: Google Client Secret
+      description: Google Auth Client Secret
       required: true
       type: string
     - variable: TOKEN_URL
       label: Google Token URL
+      description: Google OAuth Token URL
       required: true
       type: string
       default: https://accounts.google.com/o/oauth2/token
     - variable: GRAFANA_DOMAIN
       label: Grafana Server Domain
+      description: Domain Name of Grafana Server
       required: true
       type: string
       default: grafana.teampirate.io
     - variable: PROMETHEUS_DOMAIN
       label: Prometheus Server Domain
+      description: Domain Name of Prometheus Server
       required: true
       type: string
       default: prometheus.teampirate.io
     - variable: ENVIRONMENT
-      label: "Environment"
-      description: |
-        Used to set DNS entry.
+      label: Environment
+      description: Used to set DNS entry.
       default: stage
       required: true
       type: enum

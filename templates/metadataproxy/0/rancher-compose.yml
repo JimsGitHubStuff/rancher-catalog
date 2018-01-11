@@ -1,4 +1,12 @@
 version: '2'
+catalog:
+  name: Metadataproxy
+  version: 1
+  description: |
+    Metadataproxy for AWS Services
+  minimum_rancher_version: v0.59.0
+  maintainer: "Jordan Simonovski <jordan.simonovski@gmail.com>"
+  uuid: metadataproxy-0
 services:
   metadataproxy:
     scale: 1
