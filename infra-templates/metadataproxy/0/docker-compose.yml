@@ -1,6 +1,6 @@
 version: '2'
 services:
-  api:
+  metadataproxy:
     image: lyft/metadataproxy
     stdin_open: true
     network_mode: host
