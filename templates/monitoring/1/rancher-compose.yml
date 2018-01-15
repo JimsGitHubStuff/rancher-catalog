@@ -1,7 +1,7 @@
 version: '2'
 catalog:
   name: Monitoring
-  version: 1
+  version: 2
   description: Prometheus and Grafana with Google Auth and EBS support
   minimum_rancher_version: v0.59.0
   maintainer: "Jordan Simonovski <jordan.simonovski@gmail.com>"
