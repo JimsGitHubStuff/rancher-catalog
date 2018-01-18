@@ -1,0 +1,5 @@
+name: Drone 
+description: Drone re-jigged to use EFS for sqlite
+version: 0
+category: CI
+maintainer: Jordan Simonovski
