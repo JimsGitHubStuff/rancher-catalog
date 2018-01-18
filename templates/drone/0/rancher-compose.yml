@@ -104,6 +104,21 @@ catalog:
         - 0.8.0
         - '0.8'
         - latest
+    - variable: database_driver
+      label: Database Driver
+      description: "Database driver. If sqlite, additional volume would be mounted at /var/lib/drone."
+      type: enum
+      default: "sqlite"
+      options:
+        - "sqlite"
+        - "mysql"
+        - "postgres"
+      required: true
+    - variable: "database_source"
+      type: "string"
+      label: "Database source"
+      description: "Database datasource. Required if database driver is mysql or postgres, http://readme.drone.io/admin/database-engines/"
+      required: false 
     - variable: "drone_debug"
       label: Drone Debug
       description: "Enable debug output with the Drone server."

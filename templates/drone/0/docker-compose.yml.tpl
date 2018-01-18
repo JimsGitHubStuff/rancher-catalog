@@ -74,18 +74,6 @@ services:
       DRONE_DATABASE_DRIVER: ${database_driver}
       DRONE_DATABASE_DATASOURCE: ${database_source}
 {{- end}}
-{{- if (.Values.http_proxy)}}
-      HTTP_PROXY: ${http_proxy}
-      http_proxy: ${http_proxy}
-{{- end}}
-{{- if (.Values.https_proxy)}}
-      HTTPS_PROXY: ${https_proxy}
-      https_proxy: ${https_proxy}
-{{- end}}
-{{- if (.Values.no_proxy)}}
-      NO_PROXY: ${no_proxy}
-      no_proxy: ${no_proxy}
-{{- end}}
     ports:
       - 3000
     labels:
