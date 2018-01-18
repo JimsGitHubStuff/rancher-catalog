@@ -26,7 +26,12 @@ services:
       GF_AUTH_GOOGLE_ENABLED: 'true'
       GF_AUTH_GOOGLE_SCOPES: https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email
       GF_AUTH_GOOGLE_TOKEN_URL: ${TOKEN_URL}
+      {{- if eq .Values.ENVIRONMENT "staging"}}
+      GF_SERVER_DOMAIN: stage-${GRAFANA_DOMAIN}
+      {{- end}}
+      {{- if eq .Values.ENVIRONMENT "production"}}
       GF_SERVER_DOMAIN: ${GRAFANA_DOMAIN}
+      {{- end}}
       GF_SERVER_ROOT_URL: https://%(domain)s/
     tty: true
     links:
