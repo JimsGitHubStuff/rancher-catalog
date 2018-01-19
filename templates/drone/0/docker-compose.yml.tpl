@@ -75,13 +75,13 @@ services:
       DRONE_DATABASE_DATASOURCE: ${database_source}
 {{- end}}
     ports:
-      - 3000
+      - 8000
     labels:
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.container.hostname_override: container_name
       traefik.enable: true
       traefik.frontend.rule: Host:r-drone.teampirate.io
-      traefik.port: 3000
+      traefik.port: 8000
 {{- if eq .Values.database_driver "sqlite"}}
       io.rancher.sidekicks: server-volume
     volumes_from:

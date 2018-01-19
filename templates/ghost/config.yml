@@ -1,0 +1,5 @@
+name: Ghost
+description: Ghost re-jigged to use EFS for sqlite.
+version: 0
+category: Blog
+maintainer: Jordan Simonovski
