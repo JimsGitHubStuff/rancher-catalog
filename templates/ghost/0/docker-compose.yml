@@ -12,4 +12,4 @@ services:
       - 2368
     volumes:
       - /mnt/efs/rancher/ghost/content/:/var/lib/ghost/content
-      - /mnt/efs/ghost/ghostconfig/config.production.json:/var/lib/ghost/config.production.json
+      - /mnt/efs/rancher/ghost/ghostconfig/config.production.json:/var/lib/ghost/config.production.json
