@@ -1,0 +1,40 @@
+version: '2'
+catalog:
+  name: chaosmonkey
+  version: 1
+  description: Let's run ChaosMonkey on Rancher!
+  maintainer: "Jordan Simonovski <jordan.simonovski@gmail.com>"
+  questions:
+    - variable: ASG_TAG
+      label: AutoScaling Group Tag Name
+      description: Set up for opt-in mode only, meaning ASGs need to be tagged with a k/v pair (e.g. Key=chaos_monkey, Value=true)
+      default: chaos_monkey
+      type: string
+    - variable: CHAOS_PROBABILITY
+      label: Chaos Probability
+      description: This determines how likely it will be for a particualr roll to evaluate as true for chaos monkey
+      type: enum
+      options:
+        - always
+        - daily
+        - weekly
+      default: weekly
+    - variable: DRY_RUN
+      label: Run in Dry-Run (Leashed) Mode
+      type: enumz
+      options:
+        - true
+        - false
+    - variable: 
+      label: Do you want to set a maximum number of terminations (per day) for instances?
+      type: enum
+      options: 
+        - yes
+        - no
+    - variable: MAX_TERMINATION_NUMBER
+      label: What is the maximum termination threshold you would like to set?
+      type: enum
+      options: 
+        - 1.00
+        - 2.00
+        - 3.00

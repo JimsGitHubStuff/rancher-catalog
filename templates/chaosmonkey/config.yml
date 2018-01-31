@@ -1,0 +1,5 @@
+name: Chaos Monkey 
+description: Chas Monkey With Limited ASG Termination Functionality
+version: 0
+category: Chaos Engineering
+maintainer: Jordan Simonovski
