@@ -22,4 +22,4 @@ services:
       {{- end}}
       {{- if (.Values.MAX_TERMINATIONS)}}
       SIMIANARMY_CHAOS_ASG_MAXTERMINATIONSPERDAY: ${MAX_TERMINATION_NUMBER}
-      {{- end}
+      {{- end}}
