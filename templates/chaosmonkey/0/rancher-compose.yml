@@ -33,6 +33,7 @@ catalog:
         - no
     - variable: MAX_TERMINATION_NUMBER
       label: What is the maximum termination threshold you would like to set?
+      description: This dictates how many times instances in an ASG can be terminated by Chaos Monkey
       type: enum
       options: 
         - 1.00
