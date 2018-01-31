@@ -21,7 +21,7 @@ catalog:
       default: weekly
     - variable: DRY_RUN
       label: Run in Dry-Run (Leashed) Mode
-      type: enumz
+      type: enum
       options:
         - true
         - false
