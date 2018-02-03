@@ -7,6 +7,7 @@ services:
       io.rancher.container.hostname_override: container_name
       io.rancher.container.network: true
     environment:
+      IAM_ROLE: ${IAM_ROLE}
       SIMIANARMY_CALENDAR_ISMONKEYTIME: true
       SIMIANARMY_CHAOS_ASG_ENABLED: true
       SIMIANARMY_CHAOS_ASGTAG_KEY: ${ASG_TAG}
@@ -24,4 +25,3 @@ services:
       {{- if (.Values.MAX_TERMINATIONS)}}
       SIMIANARMY_CHAOS_ASG_MAXTERMINATIONSPERDAY: ${MAX_TERMINATION_NUMBER}
       {{- end}}
-      IAM_ROLE: ${IAM_ROLE}
