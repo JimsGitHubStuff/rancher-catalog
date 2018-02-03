@@ -29,6 +29,7 @@ services:
   server:
     image: drone/drone:${drone_version}
     environment:
+      IAM_ROLE: ${IAM_ROLE}
       DRONE_HOST: ${drone_host}
       GIN_MODE: ${gin_mode}
 {{- if (.Values.drone_debug)}}
@@ -99,4 +100,5 @@ services:
       io.rancher.container.start_once: 'true'
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.container.hostname_override: container_name
+      io.rancher.container.network: true
 {{- end}}

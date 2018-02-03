@@ -11,6 +11,10 @@ catalog:
       description: Intended URL Drone will be hosted on, e.g. http://drone.mycompany.com.
       required: true
       type: string
+    - variable: IAM_ROLE
+      label: IAM Role for Drone
+      type: string
+      required: true
     - variable: agent_scale
       label: Drone Agent Scale
       description: Drone agent scale to deploy

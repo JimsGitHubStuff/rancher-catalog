@@ -9,6 +9,7 @@ catalog:
       label: AutoScaling Group Tag Name
       description: Set up for opt-in mode only, meaning ASGs need to be tagged with a k/v pair (e.g. Key=chaos_monkey, Value=true)
       default: chaos_monkey
+      required: MAX_TERMINATION_NUMBER
       type: string
     - variable: CHAOS_PROBABILITY
       label: Chaos Probability
@@ -25,6 +26,10 @@ catalog:
       options:
         - true
         - false
+    - variable: IAM_ROLE
+      label: IAM Role for ChaosMonkey Access to do what it needs to
+      type: string
+      required: true
     - variable: 
       label: Do you want to set a maximum number of terminations (per day) for instances?
       type: enum

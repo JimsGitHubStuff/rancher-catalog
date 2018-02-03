@@ -5,6 +5,7 @@ services:
     labels:
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.container.hostname_override: container_name
+      io.rancher.container.network: true
     environment:
       SIMIANARMY_CALENDAR_ISMONKEYTIME: true
       SIMIANARMY_CHAOS_ASG_ENABLED: true
@@ -23,3 +24,4 @@ services:
       {{- if (.Values.MAX_TERMINATIONS)}}
       SIMIANARMY_CHAOS_ASG_MAXTERMINATIONSPERDAY: ${MAX_TERMINATION_NUMBER}
       {{- end}}
+      IAM_ROLE: ${IAM_ROLE}
