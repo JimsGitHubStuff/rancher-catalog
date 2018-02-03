@@ -3,9 +3,12 @@ services:
   metadataproxy:
     image: lyft/metadataproxy
     stdin_open: true
+    tty: true
     network_mode: host
     volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     labels:
       io.rancher.container.pull_image: always
       io.rancher.scheduler.global: 'true'
+    environment:
+      DEBUG: True
