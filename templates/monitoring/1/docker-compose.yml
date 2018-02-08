@@ -74,6 +74,7 @@ services:
     tty: true
     labels:
       io.rancher.scheduler.global: 'true'
+      io.rancher.scheduler.affinity:host_label_ne: utilities_enabled=true
   prometheus:
     image: prom/prometheus:v1.6.0
     volumes:
