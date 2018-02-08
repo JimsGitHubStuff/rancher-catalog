@@ -26,6 +26,7 @@ services:
     labels:
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity:host_label: utilities_enabled=true
   server:
     image: drone/drone:${drone_version}
     environment:
