@@ -83,7 +83,7 @@ services:
       io.rancher.container.hostname_override: container_name
       io.rancher.scheduler.affinity:host_label: utilities_enabled=true
       traefik.enable: true
-      traefik.frontend.rule: Host:r-drone.teampirate.io
+      traefik.frontend.rule: Host:drone.teampirate.io
       traefik.port: 8000
 {{- if eq .Values.database_driver "sqlite"}}
       io.rancher.sidekicks: server-volume
