@@ -9,7 +9,7 @@ services:
       {{- if ne .Values.traefik_route_rule ""}}
       traefik.frontend.rule: Host:${traefik_route_rule}
       {{- end}}
-      {{- if .Values.traefik_route_rule ""}}
+      {{- if eq .Values.traefik_route_rule ""}}
       traefik.frontend.rule: Host:${blog_url}
       {{- end}}
       traefik.port: 2368
