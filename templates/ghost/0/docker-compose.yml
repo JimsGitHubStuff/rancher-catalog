@@ -6,10 +6,10 @@ services:
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.container.hostname_override: container_name
       traefik.enable: true
-      traefik.frontend.rule: Host:blog.teampirate.io
+      traefik.frontend.rule: Host:${blog_url}
       traefik.port: 2368
     ports:
       - 2368
     volumes:
-      - /mnt/efs/rancher/ghost/content/:/var/lib/ghost/content
-      - /mnt/efs/rancher/ghost/ghostconfig/config.production.json:/var/lib/ghost/config.production.json
+      - /mnt/efs/rancher/ghost/${efs_location}/content/:/var/lib/ghost/content
+      - /mnt/efs/rancher/ghost/${efs_location}/ghostconfig/config.production.json:/var/lib/ghost/config.production.json

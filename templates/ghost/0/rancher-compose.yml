@@ -1,7 +1,17 @@
-.catalog:
-  name: "Ghost"
-  version: "v0.1-educaas"
-  description: "Blog powered by Ghost. Requires no database"
-  uuid: ghost-0
-  minimum_rancher_version: v0.51.0
-ghost:
+version: 2
+catalog:
+  name: Ghost
+  version: v0.2-teampirate
+  upgrade_from: v0.1-educaas
+  description: Blog powered by Ghost. Requires no database
+  questions:
+    - variable: blog_url
+      label: Blog URL
+      required: true
+      type: string
+    - variable: efs_location
+      label: EFS Location
+      description: /mnt/efs/rancher/ghost/${location}
+      required: true
+      default: blog
+      type: string
