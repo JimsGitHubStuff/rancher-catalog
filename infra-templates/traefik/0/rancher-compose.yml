@@ -59,6 +59,11 @@ catalog:
       required: true
       default: 8000 
       type: "int"
+    - variable: "cw_log_group"
+      label: "CloudWatch Log Group for Access and Error Logs"
+      required: false
+      default: ""
+      type: "string"
     - variable: "https_enable"
       label: "Https enable:"
       description: |

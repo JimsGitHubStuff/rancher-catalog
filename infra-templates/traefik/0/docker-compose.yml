@@ -22,6 +22,13 @@ services:
     {{- end}}
       io.rancher.container.hostname_override: container_name
     image: rawmind/alpine-traefik:1.4.6-0
+    {{- if ne .Values.cw_log_group ""}}
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: ap-southeast-2
+        awslogs-group: ${cw_log_group}
+    {{- end}}
     environment:
     - TRAEFIK_HTTP_PORT=${http_port}
     - TRAEFIK_HTTP_COMPRESSION=${compress_enable}
