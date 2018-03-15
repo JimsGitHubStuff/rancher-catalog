@@ -9,6 +9,11 @@ catalog:
       label: Blog URL
       required: true
       type: string
+    - variable: traefik_route_rule
+      label: Traefik Routing Rule
+      description: In Case you want to route multiple URLs to ghost
+      required: false
+      type: string
     - variable: efs_location
       label: EFS Location
       description: /mnt/efs/rancher/ghost/${location}

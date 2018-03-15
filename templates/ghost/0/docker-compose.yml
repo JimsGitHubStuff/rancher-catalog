@@ -6,10 +6,15 @@ services:
       io.rancher.scheduler.affinity:container_label_soft_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
       io.rancher.container.hostname_override: container_name
       traefik.enable: true
+      {{- if ne .Values.traefik_route_rule ""}}
+      traefik.frontend.rule: Host:${traefik_route_rule}
+      {{- end}}
+      {{- if .Values.traefik_route_rule ""}}
       traefik.frontend.rule: Host:${blog_url}
+      {{- end}}
       traefik.port: 2368
-    ports:
-      - 2368
+    environment:
+      - url=http://${blog_url}
     volumes:
       - /mnt/efs/rancher/ghost/${efs_location}/content/:/var/lib/ghost/content
-      - /mnt/efs/rancher/ghost/${efs_location}/ghostconfig/config.production.json:/var/lib/ghost/config.production.json
+      # - /mnt/efs/rancher/ghost/${efs_location}/ghostconfig/config.production.json:/var/lib/ghost/config.production.json
