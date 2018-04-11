@@ -25,3 +25,11 @@ catalog:
       label: Upstream Service URL
       required: true
       type: string
+    - variable: http_address
+      label: HTTP Address
+      required: true
+      type: string
+    - variable: https_address
+      label: HTTPS Address
+      required: true
+      type: string

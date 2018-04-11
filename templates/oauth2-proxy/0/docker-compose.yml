@@ -9,6 +9,8 @@ services:
       --cookie-secret=${cookie_secret}
       --client-id=${client_id}
       --client-secret=${client_secret}
+      --http-address=${http_address}
+      --https-address=${https_address}
     labels:
       io.rancher.scheduler.affinity: app_host
       io.rancher.container.pull_image: always
