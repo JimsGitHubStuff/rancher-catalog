@@ -21,3 +21,7 @@ catalog:
       label: Google Client Secret
       required: true
       type: string
+    - variable: upstream_service_url
+      label: Upstream Service URL
+      required: true
+      type: string
