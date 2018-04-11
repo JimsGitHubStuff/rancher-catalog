@@ -1,6 +1,6 @@
 version: '2'
 services:
-  oauth2_proxy:
+  oauth2proxy:
     image: wingedkiwi/oauth2-proxy
     command: >
       oauth2_proxy 
