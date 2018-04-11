@@ -1,0 +1,23 @@
+version: 2
+catalog:
+  name: Oauth2 Proxy
+  version: v0.1
+  description: OAuth2 Proxy support.
+  questions:
+    - variable: email_domain
+      label: Email Domain
+      required: true
+      type: string
+    - variable: cookie_secret
+      label: Cookie Secret
+      description: Ideally B64 encoded
+      required: true
+      type: string
+    - variable: client_id
+      label: Google Client ID
+      required: true
+      type: string
+    - variable: client_secret
+      label: Google Client Secret
+      required: true
+      type: string

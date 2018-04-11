@@ -1,0 +1,19 @@
+version: '2'
+services:
+  oauth2_proxy:
+    image: wingedkiwi/oauth2-proxy
+    command: >
+      oauth2_proxy 
+      --email-domain="${email_domain}"
+      --upstream=http://127.0.0.1:8080/
+      --cookie-secret=${cookie_secret}
+      --client-id=${client_id}
+      --client-secret=${client_secret}
+    labels:
+      io.rancher.scheduler.global: 'true'
+      io.rancher.scheduler.affinity:host_label: ${host_label}
+      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
+      io.rancher.container.hostname_override: container_name
+      traefik.enable: true
+      traefik.frontend.rule: Host:logs.teampirate.io
+      traefik.port: 8080
