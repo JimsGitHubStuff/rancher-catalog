@@ -16,4 +16,4 @@ services:
       io.rancher.container.hostname_override: container_name
       traefik.enable: true
       traefik.frontend.rule: Host:logs.teampirate.io
-      traefik.port: 8080
+      traefik.port: 4180
