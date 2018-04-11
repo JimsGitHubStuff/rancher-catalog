@@ -10,9 +10,9 @@ services:
       --client-id=${client_id}
       --client-secret=${client_secret}
     labels:
-      io.rancher.scheduler.affinity:host_label: ${host_label}
-      io.rancher.scheduler.affinity:container_label_ne: io.rancher.stack_service.name=$${stack_name}/$${service_name}
-      io.rancher.container.hostname_override: container_name
+      io.rancher.scheduler.affinity: app_host
+      io.rancher.container.pull_image: always
+      io.rancher.container.network: true
       traefik.enable: true
       traefik.frontend.rule: Host:logs.teampirate.io
       traefik.port: 4180
