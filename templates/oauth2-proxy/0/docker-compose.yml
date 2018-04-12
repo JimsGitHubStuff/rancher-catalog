@@ -1,7 +1,7 @@
 version: '2'
 services:
   oauth2proxy:
-    image: wingedkiwi/oauth2-proxy
+    image: jsimonovski/oauth2-proxy
     command: >
       oauth2_proxy 
       --email-domain="${email_domain}"
