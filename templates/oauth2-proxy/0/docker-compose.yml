@@ -2,13 +2,6 @@ version: '2'
 services:
   oauth2proxy:
     image: jsimonovski/oauth2-proxy
-    command: >
-      oauth2_proxy 
-      --email-domain="${email_domain}"
-      --upstream=${upstream_service_url}
-      --cookie-secret=${cookie_secret}
-      --client-id=${client_id}
-      --client-secret=${client_secret}
     labels:
       io.rancher.scheduler.affinity: app_host
       io.rancher.container.pull_image: always
@@ -16,3 +9,9 @@ services:
       traefik.enable: true
       traefik.frontend.rule: Host:logs.teampirate.io
       traefik.port: 4180
+    environment:
+      EMAIL_DOMAIN: ${email_domain}
+      UPSTREAM_SERVICE_URL: ${upstream_service_url}
+      COOKIE_SECRET: ${cookie_secret}
+      CLIENT_ID: ${client_id}
+      CLIENT_SECRET: ${client_secret}
