@@ -21,7 +21,7 @@ services:
         {{- end -}}
     {{- end}}
       io.rancher.container.hostname_override: container_name
-    image: rawmind/alpine-traefik:1.4.6-0
+    image: rawmind/alpine-traefik:1.6.4-0
     {{- if ne .Values.cw_log_group ""}}
     logging:
       driver: awslogs
