@@ -1,0 +1,5 @@
+name: DockerCraft
+description: DockerCraft Experiment Running on Rancher.
+version: 0
+category: Fun
+maintainer: Jordan Simonovski

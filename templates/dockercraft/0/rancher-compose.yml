@@ -1,0 +1,6 @@
+version: 2
+catalog:
+  name: DockerCraft
+  version: v0.1
+  upgrade_from: v0
+  description: Manage Containers from Minecraft
