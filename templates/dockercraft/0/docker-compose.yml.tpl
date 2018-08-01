@@ -8,4 +8,4 @@ services:
       raefik.frontend.rule: Host:dockercraft.teampirate.io
       traefik.port: 25565
     volumes:
-      - /vare/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
